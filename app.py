@@ -83,7 +83,7 @@ def index():
 def register():
     if request.method == 'POST':
         username = request.form['username']
-        password = request.form['password_hash']
+        password = request.form['password']
         password_hash = generate_password_hash(password)
         conn = get_db_connection()
         
