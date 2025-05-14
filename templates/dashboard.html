@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<h2>Mis tareas</h2>
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                <form method="POST">
+                    <label>Título:</label><br>
+                    <input type="text" name="title" required><br>
+                    
+                    <label>Descripción:</label><br>
+                    <textarea name="description" rows="3"></textarea><br><br>
+                
+                    <input type="submit" value="Agregar tarea">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-4"></div>
+</div>
+
+<hr>
+<div class="container mt-4">
+    <h2 class="mb-4">Bienvenido, {{name}} </h2>
+    <div class="card">
+        <div class="card-body">
+            <ul>
+                {% for task in tasks %}
+                    <li>
+                        <strong>{{ task['title'] }}</strong><br>
+                        {{ task['description'] }}<br>
+                        Completado: {{ '✔' if task['completed'] else '❌' }}<br>
+                        <a href="{{ url_for('edit_task', task_id=task['id']) }}">Editar</a> |
+                        <a href="{{ url_for('delete_task', task_id=task['id']) }}">Eliminar</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Iniciar sesión{% endblock %}
+
+{% block content %}
+<h2>Iniciar sesión</h2>
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">         
+                <form method="POST">
+                    <label for="des" class="form-label">Usuario:</label><br>
+                    <input type="text" class="form-control" name="username" id="des"  required><br><br>
+                
+                    <label for="hr" class="form-label">Contraseña:</label><br>
+                    <input type="password"  class="form-control" id="hr" name="password" required><br><br>
+                
+                    <button type="submit" class="btn btn-primary">INICIAR SESIÓN</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-4"></div>
+</div>
+{% endblock %}
